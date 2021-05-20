@@ -5,20 +5,23 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "keywords": [
     "RestAPI"
   ],
-  "author": "",
+  "author": "Ayman Abdulhak",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.7"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
+    "mongoose": "^5.12.9",
     "morgan": "^1.10.0"
   }
 }

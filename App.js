@@ -1,21 +1,33 @@
 import express from 'express'
 import helmet from 'helmet'
 import morgan from 'morgan'
-import dotenv from 'dotenv'
+import Middlewares from './src/middlewares/Middlewares.js'
+import Configurations from './src/configurations/Configurations.js'
+import routes from './src/routes/Pastry.route.js'
+import cors from 'cors'
 
-dotenv.config()
-const { PORT } = process.env
+
 
 const app = express()
+app.use(express.json())
+app.use(cors({Credential: true}))
 app.use(helmet())
-
 app.use(morgan('common',))
-
-
-app.listen(PORT , () => {
-    console.log (`  ✔️     SERVERN IS RUNNING ON PORT : ${PORT}`)
-})
 
 app.get('/product' , (requset,response) => {
     response.send(`  ✔️     SERVERN IS RUNNING `)
 } )
+
+routes.pastryRoute(app)
+
+
+
+Configurations.connectToPort(app)
+Configurations.connectToDatabas()
+
+
+
+
+
+
+
